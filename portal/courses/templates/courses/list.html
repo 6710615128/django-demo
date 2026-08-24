@@ -1,0 +1,24 @@
+{%load static%}
+<!DOCTYPEhtml>
+<htmllang="th">
+<head>
+    <title>รายชื ่อวิชา-CN331</title>
+    <linkrel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header class="navbar"><h1>Course EnrollmentSystem</h1></header>
+    <main class="container">
+        <input type="text" id="search-box" placeholder="ค้นหาวิชา...">
+        <div class="card-grid">
+            {% for course in courses%}
+            <div class="course-card">
+                <h3>{{course.code}}:{{course.title}}</h3>
+                <p>หน่วยกิต:{{course.credits}}</p>
+                <ahref="/courses/{{ course.id }}/" class="btn">ดูรายละเอียด</a>
+            </div>
+            {%endfor %}
+        </div>
+    </main>
+    <scriptsrc="{% static 'js/filter.js' %}"></script>
+</body>
+</html>
